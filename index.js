@@ -5,8 +5,8 @@ import appRoutes from './src/routes/app.routes.js';
 import taskRoutes from './src/routes/task.routes.js';
 
 const app = express();
-const whiteList = ['http://localhost:3001/']
-app.use(cors({origin: whiteList}));
+const whiteList = ['http://localhost:3000/', 'http://localhost:3001/']
+app.use(cors({origin: whiteList, credentials: true}));
 app.use(express.json());
 
 //routes
