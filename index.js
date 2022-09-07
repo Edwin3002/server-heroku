@@ -5,8 +5,8 @@ import appRoutes from './src/routes/app.routes.js';
 import taskRoutes from './src/routes/task.routes.js';
 
 const app = express();
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 //routes
 
