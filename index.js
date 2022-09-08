@@ -16,7 +16,7 @@ app.use(appRoutes);
 app.use(taskRoutes);
 
 
-const PORT = 3000;
+const PORT = 4000;
 //start server
 app.listen(process.env.PORT || PORT, () => {
     console.log(`server is up ${PORT}`);

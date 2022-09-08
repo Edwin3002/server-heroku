@@ -23,6 +23,12 @@ export const updateTaskDb = async (task , title, id) => {
     const data = await db.execute(query, [task, title]);
     return data[0];
 };
+export const updateDoneTaskDb = async (done, id) => {
+    console.log(id, done);
+    const query = (`UPDATE tasks SET done = ? WHERE id = (${id})`) ;
+    const data = await db.execute(query, [done]);
+    return data[0];
+};
 
 export const deleteTaskDb = async (id) => {
     const query = (`DELETE FROM tasks where id = ${id}`);

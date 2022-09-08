@@ -1,5 +1,5 @@
 import express from 'express';
-import { createTaskDb, deleteTaskDb, getOneTaskDb, getTaskDb, updateTaskDb } from '../services/tasks.services.js';
+import { createTaskDb, deleteTaskDb, getOneTaskDb, getTaskDb, updateDoneTaskDb, updateTaskDb } from '../services/tasks.services.js';
 
 export const getTask = async (req, res) => {
     try {
@@ -34,6 +34,16 @@ export const updateTask = async (req, res) => {
     try {
         const data = await updateTaskDb(task, title, id);
         return res.status(200).json({mesage: 'put va good'})
+    } catch (err) {
+        return console.log('error ' + err);
+    }
+};
+export const updateDoneTask = async (req, res) => {
+    const id = req.params.id
+    const {done} = req.body
+    try {
+        const data = await updateDoneTaskDb(done, id);
+        return res.status(200).json({mesage: 'put done va good'})
     } catch (err) {
         return console.log('error ' + err);
     }
